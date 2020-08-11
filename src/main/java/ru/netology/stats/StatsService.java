@@ -11,10 +11,7 @@ public class StatsService {
     }
 
     public static int calculateYearAVG (int[] month){
-        int yearSum = 0;
-        for(int item : month){
-            yearSum += item;
-        }
+        int yearSum = StatsService.calculateYearSales(month);
         int yearAVG;
         yearAVG = yearSum / 12;
         return yearAVG;
@@ -49,13 +46,7 @@ public class StatsService {
     }
 
     public static int calculateMonthsNumberBelowAVG (int[] month) {
-        int yearSum = 0;
-        for(int item : month){
-            yearSum += item;
-        }
-        int yearAVG;
-        yearAVG = yearSum / 12;
-
+        int yearAVG = StatsService.calculateYearAVG(month);
         int monthsNumber = 0;
         for(int item : month){
             if(item < yearAVG){
@@ -66,13 +57,7 @@ public class StatsService {
     }
 
     public static int calculateMonthsNumberAboveAVG (int[] month) {
-        int yearSum = 0;
-        for(int item : month){
-            yearSum += item;
-        }
-        int yearAVG;
-        yearAVG = yearSum / 12;
-
+        int yearAVG = StatsService.calculateYearAVG(month);
         int monthsNumber = 0;
         for(int item : month){
             if(item > yearAVG){
